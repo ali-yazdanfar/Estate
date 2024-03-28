@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: "Poppins";
+        src: local("Poppins"),
+            url("../fonts/Poppins-Regular.woff") format("woff");
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: "Poppins Medium";
+        src: local("Poppins Medium"),
+            url("../fonts/Poppins-Medium.woff") format("woff");
+        font-display: swap;
+    }
+    @font-face {
+        font-family: "Poppins Bold";
+        src: local("Poppins"), url("../fonts/Poppins-Bold.woff") format("woff");
+        font-display: swap;
+    }
+    @font-face {
+        font-family: "Poppins SemiBold";
+        src: local("Poppins"),
+            url("../fonts/Poppins-SemiBold.woff") format("woff");
+        font-display: swap;
+    }
+}
+
+@layer components {
+    .circle {
+        width: 88px;
+        height: 88px;
+        border-radius: 100%;
+        border: 2px solid #3e51ff;
+    }
+
+    @media screen and (min-width: 768px) {
+        .menu__item--active {
+            @apply text-Ultramarine-blue;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .menu__item--active {
+            @apply text-white;
+        }
+    }
+}
+
+@layer utilities {
+    .flex-center {
+        @apply flex items-center justify-center;
+    }
+}

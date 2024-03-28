@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style/app.css" />
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="pictures/svgs/icons8-estate.svg" />
+        <link rel="stylesheet" href="style/swiper-bundle.min.css" />
+        <title>Estate</title>
+    </head>
+    <body class="font-PoppinsMedium">
+        <!-- svg -->
+        <svg class="hidden">
+            <symbol
+                id="search"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor">
+                <path
+                    fill-rule="evenodd"
+                    d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z"
+                    clip-rule="evenodd" />
+            </symbol>
+            <symbol
+                id="star"
+                viewBox="0 0 38 36"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#filter0_d_6_15)">
+                    <path
+                        d="M19 0L22.3677 10.3647H33.2658L24.4491 16.7705L27.8168 27.1353L19 20.7295L10.1832 27.1353L13.5509 16.7705L4.73415 10.3647H15.6323L19 0Z"
+                        fill="#1B3CFF" />
+                    <path
+                        d="M19 1.61804L21.8922 10.5193L22.0044 10.8647H22.3677H31.727L24.1552 16.366L23.8613 16.5795L23.9735 16.925L26.8657 25.8262L19.2939 20.325L19 20.1115L18.7061 20.325L11.1343 25.8262L14.0265 16.925L14.1387 16.5795L13.8448 16.366L6.27299 10.8647H15.6323H15.9956L16.1078 10.5193L19 1.61804Z"
+                        stroke="black" />
+                </g>
+                <defs>
+                    <filter
+                        id="filter0_d_6_15"
+                        x="0.734131"
+                        y="0"
+                        width="36.5317"
+                        height="35.1353"
+                        filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB">
+                        <feFlood
+                            flood-opacity="0"
+                            result="BackgroundImageFix" />
+                        <feColorMatrix
+                            in="SourceAlpha"
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha" />
+                        <feOffset dy="4" />
+                        <feGaussianBlur stdDeviation="2" />
+                        <feComposite in2="hardAlpha" operator="out" />
+                        <feColorMatrix
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                        <feBlend
+                            mode="normal"
+                            in2="BackgroundImageFix"
+                            result="effect1_dropShadow_6_15" />
+                        <feBlend
+                            mode="normal"
+                            in="SourceGraphic"
+                            in2="effect1_dropShadow_6_15"
+                            result="shape" />
+                    </filter>
+                </defs>
+            </symbol>
+            <symbol
+                id="arrow-right"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor">
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+            </symbol>
+        </svg>
+
+        <header class="header">
+            <div class="fixed bg-white left-0 right-0 z-50 shadow-xl">
+                <div class="container flex items-center justify-between py-3.5">
+                    <div
+                        class="flex items-center gap-x-5 lg:gap-x-10 xl:gap-x-[77px]">
+                        <!-- header logo -->
+                        <a
+                            href="#"
+                            class="w-14 h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20">
+                            <svg
+                                viewBox="0 0 80 80"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <rect
+                                    width="80"
+                                    height="80"
+                                    fill="url(#pattern0)" />
+                                <defs>
+                                    <pattern
+                                        id="pattern0"
+                                        patternContentUnits="objectBoundingBox"
+                                        width="1"
+                                        height="1">
+                                        <use
+                                            xlink:href="#image0_1_5"
+                                            transform="scale(0.0111111)" />
+                                    </pattern>
+                                    <image
+                                        id="image0_1_5"
+                                        width="90"
+                                        height="90"
+                                        xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAAAXNSR0IArs4c6QAABGxJREFUeF7t28+LHEUcBfD37UwSiD8OIoachBy8iYegUUmWzTHsJnGEHARz9BTwmpwk4EXPevEmCF4CmSS7SyAgrGsIAT244F8gIolXE1iXbH+lk9kwM8xs1auu7pndfXtcXlVXfaq6urum26C/VgSslaPoIBB0S5NA0IJuSaClw2hGCzpO4OJFP/RwC1+a4xIcDsMPRzv44vp12xxXA5uPa0U4tetn9FzXvwJwZaSrX6/17Oq47rP5MGFcYi9A/w3g2Eh3H671bPR/zyJzXafycYzhVGvQ1Sn76Ck+Q4lPYXgbhpe2m+clHrvhbmFYObiFlZ9u26Nw058n5rru47JrPRvbNzYf245QrhXo0x/7MdvCEgqcCDUIjhLArzAslcDyvZ6t71SGhWPzwfZGBhqHfjaTN3E/CnlMo73EnwYsl46lzmtYXf3eNgZjLBybj3QMxhqHnuv6ZQDfBlsSE3A8geEuHCsHSyxXSwwLx+ZjmhWTaR76I38Aw8mYxlAZR+mO36zAe1qjAZy+4P9agZcpxAzhfXcxDJ2qZ8/64ceHMG/AeTcsmOHNDM4oHTequ5inwPL9nv2zXWeoPTmOPa6O5pcO8vbrVNffOVBiwQ3nAbwLQ1Gr8/27GHPc3iqwUgC/M0tNrWMPFJ456MGOzX/ir/sGzpSOc+a4gAKv5ur4aD2Tlppcx5tp6CH0a97BOt4vgUUv0bUCb+VCqOoR9ATNUwt+vDiAc25YBDBvBTp14AUdoZdjiRF0BHSOJUbQJPRoPHaJEXRN6MHiH3b9jQ4wdmdQ0Bmhq6r0wJIZdFJ1ghZ0PQF2Bk0rP7GX1dYs8Ic5fjyyie/u3LH/UkRm7slw5qCH9yvWzbC4esP+YrEFTYoZsH5kAyfZmS1oErqKm+Pzn2/aN0xRQTNa29kSD9Zu2QdMUUEzWv1s9XrEL7fsFabozEEzjU/JNn2xndQmQfdlmv6NUdCCTlkYwmW0dISNsiQEnYUxXImg+0ZNQ0yqPzxEwwl2/3rmLoaCZod8yjOUvV1ju9f4jGa/AZnWDN310Ow3IIJ+fq7QazT7DYig06Gpb0bYta/pfNMDn22vg21o03Bs/Wz72bygW7oLErSg2ZO/Xp5dCti8ZvRemdH15tlAafI9CnbG7Zq9jlwNjRmY6qf90HsUgo6RjMiE3qMQdARibGSn9ygEHasYk9vhPQpBxwBGZnZ6j2LfQbPbkrnykWP1IpZrYBrfj266oWz9gp7yA8KkAWAHks1P7cmQbSib14zWjB6aAym/sFAb/+wMZfP7bkazHWbzue5Scm0hTO2ug4Vj84JmxRLzgk6EY4sJmhVLzAs6EY4tJui+WNMQ7FVeT4aZB4Y9M9j7dDavR/ApP6nqybClM0zQgh5e7XQxZK9GeyTPDny2pWOP+EV3Q9DRVPWCgq7nF11a0NFU9YKCrucXXbpx6OiWKDgkQN91yC9NQNBpbnQpQdNkaQUEneZGlxI0TZZWQNBpbnQpQdNkaQUEneZGl/ofM5w+l3vuSLwAAAAASUVORK5CYII=" />
+                                </defs>
+                            </svg>
+                        </a>
+
+                        <!-- menu item -->
+                        <ul
+                            class="menu__item hidden md:flex md:gap-x-5 lg:gap-x-8 lg:text-lg child-hover:text-Ultramarine-blue child-hover:transition-all">
+                            <li
+                                data-section="home"
+                                class="list__item menu__item--active">
+                                <a href="#">Home</a>
+                            </li>
+                            <li data-section="services" class="list__item">
+                                <a href="#">Services</a>
+                            </li>
+                            <li data-section="benefits" class="list__item">
+                                <a href="#">Benefits</a>
+                            </li>
+                            <li data-section="contactus" class="list__item">
+                                <a href="#">Contact us</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- register / login header -->
+                    <div
+                        class="hidden md:flex md:gap-x-4 lg:gap-x-6 items-center lg:text-lg">
+                        <a
+                            href="#"
+                            class="flex-center md:w-24 md:h-11 lg:w-28 lg:h-[50px] xl:w-[153px] xl:h-[55px] text-Ultramarine-blue border-2 border-Ultramarine-blue rounded-xl"
+                            >Login</a
+                        >
+                        <a
+                            href="#"
+                            class="flex-center md:w-24 md:h-11 lg:w-28 lg:h-[50px] xl:w-[163px] xl:h-[55px] text-white bg-Ultramarine-blue rounded-xl"
+                            >Sign up</a
+                        >
+                    </div>
+
+                    <!-- nav icon mobile menu -->
+                    <div class="nav-icon md:hidden">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-10 h-10">
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <!-- mobile menu -->
+            <div
+                class="nav fixed md:hidden top-0 -left-60 bottom-0 w-60 py-8 px-10 overflow-hidden bg-slate-900 text-slate-400 z-50 transition-all">
+                <ul
+                    class="menu__item child:block space-y-5 child:border-b child:border-b-slate-700 child:pb-2">
+                    <li
+                        data-section="home"
+                        class="list__item--mobile menu__item--active">
+                        <a href="#">Home</a>
+                    </li>
+                    <li data-section="services" class="list__item--mobile">
+                        <a href="#">Services</a>
+                    </li>
+                    <li data-section="benefits" class="list__item--mobile">
+                        <a href="#">Benefits</a>
+                    </li>
+                    <li data-section="contactus" class="list__item--mobile">
+                        <a href="#">Contact us</a>
+                    </li>
+                </ul>
+                <div class="flex flex-col text-center gap-y-4 mt-8">
+                    <a href="#" class="border border-slate-700 p-2 rounded-lg"
+                        >Login</a
+                    >
+                    <a href="#" class="border border-slate-700 p-2 rounded-lg"
+                        >Sign up</a
+                    >
+                </div>
+            </div>
+            <!-- overlay -->
+            <div
+                class="overlay fixed invisible opacity-0 md:hidden z-20 inset-0 w-full h-full bg-black/40 transition-all"></div>
+            <!-- section home -->
+            <section class="home">
+                <div
+                    class="home bg-home-mobile lg:bg-home-desktop w-full h-[600px] lg:h-[94vh] bg-no-repeat bg-cover bg-[center]">
+                    <div class="container h-full">
+                        <div
+                            class="h-full flex flex-col justify-center gap-12 lg:gap-24 text-white">
+                            <h1
+                                class="font-PoppinsSemiBold text-3xl lg:text-6xl">
+                                Find your next dream home
+                            </h1>
+                            <p
+                                class="font-Poppins text-lg lg:text-2xl max-w-[500px] lg:max-w-[755px] line-clamp-3">
+                                My home is located in Berlin. I live in a
+                                magnificent row house, which flaunts a small yet
+                                dainty garden at the entrance to my home.
+                            </p>
+                            <form
+                                action=""
+                                class="flex items-center bg-white max-w-[600px] md:max-w-[750px] w-full h-[70px] px-3 lg:px-6 rounded-xl">
+                                <svg class="w-7 h-7 text-gray-700 mr-4">
+                                    <use href="#search"></use>
+                                </svg>
+                                <input
+                                    type="text"
+                                    class="w-full h-full outline-none text-gray-700"
+                                    placeholder="by location..." />
+                                <a
+                                    href="#"
+                                    class="flex-center w-[163px] h-[55px] bg-Ultramarine-blue rounded-2xl text-sm lg:text-base shadow-2xl"
+                                    >Buy Now</a
+                                >
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- section home content -->
+                <div class="container">
+                    <div
+                        class="flex items-center justify-center xl:justify-between flex-wrap -mt-20 gap-5 child:px-6 child:py-5">
+                        <div class="bg-white shadow-3xl rounded-medium w-64">
+                            <div class="circle flex-center">
+                                <img
+                                    src="pictures/images/Home Page-min.png"
+                                    loading="lazy"
+                                    alt="Home" />
+                            </div>
+                            <span
+                                class="block my-5 text-Blue-ryb font-PoppinsMedium"
+                                >Home inspections</span
+                            >
+                            <div class="flex justify-end">
+                                <span
+                                    class="block w-[112px] h-0.5 bg-Blue-ryb"></span>
+                            </div>
+                        </div>
+                        <div class="bg-white shadow-3xl rounded-medium w-64">
+                            <div class="circle flex-center">
+                                <img
+                                    src="pictures/images/Property-min.png"
+                                    loading="lazy"
+                                    alt="Home" />
+                            </div>
+                            <span
+                                class="block my-5 text-Blue-ryb font-PoppinsMedium"
+                                >Property insurance</span
+                            >
+                            <div class="flex justify-end">
+                                <span
+                                    class="block w-[112px] h-0.5 bg-Blue-ryb"></span>
+                            </div>
+                        </div>
+                        <div class="bg-white shadow-3xl rounded-medium w-64">
+                            <div class="circle flex-center">
+                                <img
+                                    src="pictures/images/Location-min.png"
+                                    loading="lazy"
+                                    alt="Home" />
+                            </div>
+                            <span
+                                class="block my-5 text-Blue-ryb font-PoppinsMedium"
+                                >Best location</span
+                            >
+                            <div class="flex justify-end">
+                                <span
+                                    class="block w-[112px] h-0.5 bg-Blue-ryb"></span>
+                            </div>
+                        </div>
+                        <div class="bg-white shadow-3xl rounded-medium w-64">
+                            <div class="circle flex-center">
+                                <img
+                                    src="pictures/images/images-removebg-preview (1) 1-min.png"
+                                    loading="lazy"
+                                    alt="Home" />
+                            </div>
+                            <span
+                                class="block my-5 text-Blue-ryb font-PoppinsMedium"
+                                >Lots & land</span
+                            >
+                            <div class="flex justify-end">
+                                <span
+                                    class="block w-[112px] h-0.5 bg-Blue-ryb"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+
+        <main>
+            <!-- section services -->
+            <section class="services">
+                <div class="container">
+                    <div
+                        class="grid grid-cols-1 lg:grid-cols-2 gap-14 mt-14 lg:mt-32 overflow-hidden">
+                        <div class="w-full">
+                            <span
+                                class="block lg:text-xl text-Patricks-blue mb-6 lg:mb-11"
+                                >Our Services</span
+                            >
+                            <h3
+                                class="font-semibold text-2xl lg:text-3xl/[45px] xl:text-[42px]/[60px] text-eerieBlack mb-4">
+                                We’re Here To Help You To Find Your Dream House.
+                            </h3>
+                            <p
+                                class="text-eerieBlack lg:text-xl mb-6 lg:mb-16 max-w-[580px] w-full line-clamp-3">
+                                follow me and let me show you the unit. Each
+                                unit gets one parking space in the garage, and
+                                there are laundry facilities on the first floor.
+                                The landlord pays for the gas, but the tenant
+                                pays for all other utilities. Here’s the unit.
+                                Take a look around
+                            </p>
+                            <ul
+                                class="flex flex-col gap-4 lg:gap-8 lg:text-xl text-eerieBlack">
+                                <li class="flex items-center gap-x-3">
+                                    <svg class="w-[30px] h-[30px]">
+                                        <use href="#star"></use>
+                                    </svg>
+                                    Property management
+                                </li>
+                                <li class="flex items-center gap-x-3">
+                                    <svg class="w-[30px] h-[30px]">
+                                        <use href="#star"></use>
+                                    </svg>
+                                    Property management
+                                </li>
+                                <li class="flex items-center gap-x-3">
+                                    <svg class="w-[30px] h-[30px]">
+                                        <use href="#star"></use>
+                                    </svg>
+                                    Online Services
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="w-[90%]">
+                            <!-- swiper -->
+                            <div class="swiper mySwiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img
+                                            src="pictures/images/rsz_wallpaperflarecom_wallpaper_3-min.jpg"
+                                            loading="lazy"
+                                            alt="" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img
+                                            src="pictures/images/rsz_11wallpaperflarecom_wallpaper_1-min.jpg"
+                                            loading="lazy"
+                                            alt="" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img
+                                            src="pictures/images/rsz_1wallpaperflarecom_wallpaper_1-min.jpg"
+                                            loading="lazy"
+                                            alt="" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img
+                                            src="pictures/images/rsz_11wallpaperflarecom_wallpaper-min.jpg"
+                                            loading="lazy"
+                                            alt="" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img
+                                            src="pictures/images/rsz_11wallpaperflarecom_wallpaper_2-min.jpg"
+                                            loading="lazy"
+                                            alt="" />
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img
+                                            src="pictures/images/rsz_21wallpaperflarecom_wallpaper-min.jpg"
+                                            loading="lazy"
+                                            alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- best-recommendation -->
+                    <div
+                        class="flex items-center justify-between flex-wrap gap-2 mt-14 lg:mt-32">
+                        <h3
+                            class="sm:font-PoppinsBold text-[14px] sm:text-2xl lg:text-[45px]">
+                            Best recommendation
+                        </h3>
+                        <a
+                            href="#"
+                            class="flex items-center text-xs sm:text-base gap-x-1 lg:gap-x-2 font-Poppins lg:text-2xl text-Blue-ryb">
+                            Explore All
+                            <svg
+                                class="hidden sm:block sm:w-7 sm:h-7 lg:w-11 lg:h-11">
+                                <use href="#arrow-right"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <div
+                        class="flex flex-row justify-center xl:justify-between flex-wrap gap-6 md:gap-11 mt-16">
+                        <div class="shadow-4xl w-[385px] rounded-t-2xl">
+                            <img
+                                src="pictures/images/Rectangle.png"
+                                loading="lazy"
+                                class="w-full h-[296px] rounded-t-2xl"
+                                alt="villa" />
+                            <div class="px-2.5 py-4">
+                                <div class="flex items-center gap-x-1">
+                                    <img
+                                        src="pictures/images/Location-min.png"
+                                        loading="lazy"
+                                        class="w-5 sm:w-8 h-5 sm:h-8"
+                                        alt="location" />
+                                    <span class="font-semibold sm:text-lg"
+                                        >Berlin, Germany</span
+                                    >
+                                </div>
+                                <div class="flex justify-between my-6">
+                                    <div
+                                        class="flex items-center justify-center gap-1 sm:gap-x-2.5">
+                                        <img
+                                            src="pictures/images/Empty Bed.png"
+                                            loading="lazy"
+                                            class="w-6 h-6 sm:w-8 sm:h-8"
+                                            alt="" />
+                                        <span class="font-Poppins text-[#444]"
+                                            >8 Bed</span
+                                        >
+                                    </div>
+                                    <div
+                                        class="flex items-center justify-center gap-1 sm:gap-x-2.5">
+                                        <img
+                                            src="pictures/images/Bed Size.png"
+                                            loading="lazy"
+                                            class="w-6 h-6 sm:w-8 sm:h-8"
+                                            alt="" />
+                                        <span
+                                            class="sm:font-Poppins text-[#444]"
+                                            >10*10</span
+                                        >
+                                    </div>
+                                    <div
+                                        class="flex items-center justify-center gap-1 sm:gap-x-2.5">
+                                        <img
+                                            src="pictures/images/Home.png"
+                                            loading="lazy"
+                                            class="w-6 h-6 sm:w-8 sm:h-8"
+                                            alt="" />
+                                        <span class="font-Poppins text-[#444]"
+                                            >6 Room</span
+                                        >
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div
+                                        class="flex-center w-28 sm:w-32 h-10 border-2 border-Blue-ryb rounded-md group hover:bg-Blue-ryb cursor-pointer transition-all">
+                                        <a
+                                            href="#"
+                                            class="text-Blue-ryb group-hover:text-white transition-all"
+                                            >Book now</a
+                                        >
+                                    </div>
+                                    <span class="font-semibold sm:text-xl"
+                                        >$5,200,00</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="shadow-4xl w-[385px] rounded-t-2xl">
+                            <img
+                                src="pictures/images/Rectanglef.png"
+                                loading="lazy"
+                                class="w-full h-[296px] rounded-t-2xl"
+                                alt="villa" />
+                            <div class="px-2.5 py-4">
+                                <div class="flex items-center gap-x-1">
+                                    <img
+                                        src="pictures/images/Location-min.png"
+                                        loading="lazy"
+                                        class="w-5 sm:w-8 h-5 sm:h-8"
+                                        alt="location" />
+                                    <span class="font-semibold sm:text-lg"
+                                        >Berlin, Germany</span
+                                    >
+                                </div>
+                                <div class="flex justify-between my-6">
+                                    <div
+                                        class="flex items-center justify-center gap-1 sm:gap-x-2.5">
+                                        <img
+                                            src="pictures/images/Empty Bed.png"
+                                            loading="lazy"
+                                            class="w-6 h-6 sm:w-8 sm:h-8"
+                                            alt="" />
+                                        <span class="font-Poppins text-[#444]"
+                                            >8 Bed</span
+                                        >
+                                    </div>
+                                    <div
+                                        class="flex items-center justify-center gap-1 sm:gap-x-2.5">
+                                        <img
+                                            src="pictures/images/Bed Size.png"
+                                            loading="lazy"
+                                            class="w-6 h-6 sm:w-8 sm:h-8"
+                                            alt="" />
+                                        <span
+                                            class="sm:font-Poppins text-[#444]"
+                                            >10*10</span
+                                        >
+                                    </div>
+                                    <div
+                                        class="flex items-center justify-center gap-1 sm:gap-x-2.5">
+                                        <img
+                                            src="pictures/images/Home.png"
+                                            loading="lazy"
+                                            class="w-6 h-6 sm:w-8 sm:h-8"
+                                            alt="" />
+                                        <span class="font-Poppins text-[#444]"
+                                            >6 Room</span
+                                        >
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div
+                                        class="flex-center w-28 sm:w-32 h-10 border-2 border-Blue-ryb rounded-md group hover:bg-Blue-ryb cursor-pointer transition-all">
+                                        <a
+                                            href="#"
+                                            class="text-Blue-ryb group-hover:text-white transition-all"
+                                            >Book now</a
+                                        >
+                                    </div>
+                                    <span class="font-semibold sm:text-xl"
+                                        >$5,200,00</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="shadow-4xl w-[385px] rounded-t-2xl">
+                            <img
+                                src="pictures/images/Rectangleh.png"
+                                loading="lazy"
+                                class="w-full h-[296px] rounded-t-2xl"
+                                alt="villa" />
+                            <div class="px-2.5 py-4">
+                                <div class="flex items-center gap-x-1">
+                                    <img
+                                        src="pictures/images/Location-min.png"
+                                        loading="lazy"
+                                        class="w-5 sm:w-8 h-5 sm:h-8"
+                                        alt="location" />
+                                    <span class="font-semibold sm:text-lg"
+                                        >Berlin, Germany</span
+                                    >
+                                </div>
+                                <div class="flex justify-between my-6">
+                                    <div
+                                        class="flex items-center justify-center gap-1 sm:gap-x-2.5">
+                                        <img
+                                            src="pictures/images/Empty Bed.png"
+                                            loading="lazy"
+                                            class="w-6 h-6 sm:w-8 sm:h-8"
+                                            alt="" />
+                                        <span class="font-Poppins text-[#444]"
+                                            >8 Bed</span
+                                        >
+                                    </div>
+                                    <div
+                                        class="flex items-center justify-center gap-1 sm:gap-x-2.5">
+                                        <img
+                                            src="pictures/images/Bed Size.png"
+                                            loading="lazy"
+                                            class="w-6 h-6 sm:w-8 sm:h-8"
+                                            alt="" />
+                                        <span
+                                            class="sm:font-Poppins text-[#444]"
+                                            >10*10</span
+                                        >
+                                    </div>
+                                    <div
+                                        class="flex items-center justify-center gap-1 sm:gap-x-2.5">
+                                        <img
+                                            src="pictures/images/Home.png"
+                                            loading="lazy"
+                                            class="w-6 h-6 sm:w-8 sm:h-8"
+                                            alt="" />
+                                        <span class="font-Poppins text-[#444]"
+                                            >6 Room</span
+                                        >
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div
+                                        class="flex-center w-28 sm:w-32 h-10 border-2 border-Blue-ryb rounded-md group hover:bg-Blue-ryb cursor-pointer transition-all">
+                                        <a
+                                            href="#"
+                                            class="text-Blue-ryb group-hover:text-white transition-all"
+                                            >Book now</a
+                                        >
+                                    </div>
+                                    <span class="font-semibold sm:text-xl"
+                                        >$5,200,00</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- section Benefits -->
+            <section class="benefits">
+                <div class="container">
+                    <div
+                        class="flex flex-col items-center lg:flex-row gap-10 lg:gap-14 mt-14 lg:mt-32">
+                        <div class="w-full">
+                            <span
+                                class="block text-Blue text-xl sm:text-2xl mb-6 sm:mb-12"
+                                >Benefits</span
+                            >
+                            <h3
+                                class="font-semibold text-2xl sm:text-[45px] text-eerieBlack mb-5">
+                                Why choose us
+                            </h3>
+                            <p
+                                class="font-Poppins sm:text-xl text-eerieBlack line-clamp-3 mb-6 sm:mb-11">
+                                Living in a home brings numerous benefits and
+                                comforts. Firstly, a home provides a sense of
+                                security and stability, serving as a sanctuary
+                                where individuals can unwind and relax after a
+                                long day. Secondly, owning a home offers
+                                financial stability and long-term investment
+                                opportunities, as property values tend to
+                                appreciate over time. Lastly, a home fosters a
+                                sense of belonging and community, allowing
+                                individuals to create lasting memories with
+                                loved ones and build strong relationships with
+                                neighbors. In summary, a home is not just a
+                                physical structure but a place where one can
+                                find safety, financial stability, and a sense of
+                                belonging.
+                            </p>
+                            <ul
+                                class="flex flex-col child:flex child:items-center child:gap-x-2 child:sm:gap-x-4 gap-4 sm:gap-9">
+                                <li class="text-eerieBlack">
+                                    <img
+                                        src="pictures/images/Star 1.png"
+                                        loading="lazy"
+                                        alt="" />
+                                    <span class="sm:text-xl"
+                                        >Trusted Developer</span
+                                    >
+                                </li>
+                                <li class="text-eerieBlack">
+                                    <img
+                                        src="pictures/images/Star 1.png"
+                                        loading="lazy"
+                                        alt="" />
+                                    <span class="sm:text-xl"
+                                        >Outstanding properties</span
+                                    >
+                                </li>
+                                <li class="text-eerieBlack">
+                                    <img
+                                        src="pictures/images/Star 1.png"
+                                        loading="lazy"
+                                        alt="" />
+                                    <span class="sm:text-xl"
+                                        >A safe and trustworthy</span
+                                    >
+                                </li>
+                                <li class="text-eerieBlack">
+                                    <img
+                                        src="pictures/images/Star 1.png"
+                                        loading="lazy"
+                                        alt="" />
+                                    <span class="sm:text-xl"
+                                        >Buy with Confidence</span
+                                    >
+                                </li>
+                                <li class="text-eerieBlack">
+                                    <img
+                                        src="pictures/images/Star 1.png"
+                                        loading="lazy"
+                                        alt="" />
+                                    <span class="sm:text-xl"
+                                        >Markert Leading research</span
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+                        <div
+                            class="relative flex items-center justify-center w-full h-full">
+                            <img
+                                src="pictures/images/smartworks-coworking-cW4lLTavU80-unsplash-min.jpg"
+                                loading="lazy"
+                                class="bg-cover xl:h-[416px] rounded-xl shadow-4xl"
+                                alt="" />
+                            <div
+                                class="absolute w-10 h-10 bg-pink-500 bottom-0 right-0"></div>
+                        </div>
+                    </div>
+                    <!-- section latest news -->
+                    <div
+                        class="flex items-center justify-between flex-wrap gap-2 mt-14 lg:mt-32">
+                        <h3
+                            class="sm:font-PoppinsBold text-[14px] sm:text-2xl lg:text-[45px]">
+                            See our latest news & read blog
+                        </h3>
+                        <a
+                            href="#"
+                            class="flex items-center text-xs sm:text-base gap-x-1 lg:gap-x-2 font-Poppins lg:text-2xl text-Blue-ryb">
+                            Explore All
+                            <svg
+                                class="hidden sm:block sm:w-7 sm:h-7 lg:w-11 lg:h-11">
+                                <use href="#arrow-right"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="grid grid-rows-1 md:grid-cols-3 mt-16">
+                        <div class="flex-center w-full">
+                            <img
+                                src="pictures/images/Rectanglen.png"
+                                loading="lazy"
+                                class="md:h-full"
+                                alt="" />
+                        </div>
+                        <div class="flex-center flex-col w-full h-full">
+                            <img
+                                src="pictures/images/Rectanglek.png"
+                                loading="lazy"
+                                alt="" />
+                            <img
+                                src="pictures/images/Rectanglel.png"
+                                loading="lazy"
+                                alt="" />
+                        </div>
+                        <div class="flex-center w-full">
+                            <img
+                                src="pictures/images/Rectangleo.png"
+                                loading="lazy"
+                                class="md:h-full"
+                                alt="" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- section blogs -->
+            <section class="contactus">
+                <div class="container">
+                    <div
+                        class="bg-[url('../pictures/images/Rectangl.png')] h-[300px] md:h-[641px] mt-14 lg:mt-32 rounded-md bg-cover bg-no-repeat">
+                        <span
+                            class="block xs:font-PoppinsBold xs:text-[22px] md:text-[45px] max-w-[240px] xs:max-w-[300px] md:max-w-[665px] text-white pl-4 md:pl-14 pt-10 md:pt-14"
+                            >See what our customers said about us</span
+                        >
+                    </div>
+                    <div
+                        class="flex items-center justify-center xl:justify-between flex-wrap gap-5 md:gap-10 -mt-16 md:-mt-48">
+                        <div
+                            class="w-[385px] bg-white shadow-blog rounded-md py-3 md:py-6 px-4 md:px-8">
+                            <div class="flex items-center gap-x-4 md:gap-x-6">
+                                <img
+                                    src="pictures/images/Ellipsew.png"
+                                    loading="lazy"
+                                    class="w-20 h-20 md:w-24 md:h-24"
+                                    alt="" />
+                                <div>
+                                    <span
+                                        class="block text-xl md:text-2xl mb-1 md:mb-2"
+                                        >Ariyana aly</span
+                                    >
+                                    <span
+                                        class="font-Poppins md:text-lg text-[#444]"
+                                        >Top Customer</span
+                                    >
+                                </div>
+                            </div>
+                            <p
+                                class="font-Poppins my-3 md:my-5 text-eerieBlack line-clamp-3">
+                                Lorem ipsum dolor sit amet,facilisi consectetur
+                                adipiscing elit. Nulla. Vestibulum ante ipsum
+                                primis.
+                            </p>
+                            <span class="font-Poppins text-eerieBlack"
+                                >Date: 02-04-2022</span
+                            >
+                        </div>
+                        <div
+                            class="w-[385px] bg-white shadow-blog rounded-md py-3 md:py-6 px-4 md:px-8">
+                            <div class="flex items-center gap-x-4 md:gap-x-6">
+                                <img
+                                    src="pictures/images/Ellipsew.png"
+                                    loading="lazy"
+                                    class="w-20 h-20 md:w-24 md:h-24"
+                                    alt="" />
+                                <div>
+                                    <span
+                                        class="block text-xl md:text-2xl mb-1 md:mb-2"
+                                        >Ariyana aly</span
+                                    >
+                                    <span
+                                        class="font-Poppins md:text-lg text-[#444]"
+                                        >Top Customer</span
+                                    >
+                                </div>
+                            </div>
+                            <p
+                                class="font-Poppins my-3 md:my-5 text-eerieBlack line-clamp-3">
+                                Lorem ipsum dolor sit amet,facilisi consectetur
+                                adipiscing elit. Nulla. Vestibulum ante ipsum
+                                primis.
+                            </p>
+                            <span class="font-Poppins text-eerieBlack"
+                                >Date: 02-04-2022</span
+                            >
+                        </div>
+                        <div
+                            class="w-[385px] bg-white shadow-blog rounded-md py-3 md:py-6 px-4 md:px-8">
+                            <div class="flex items-center gap-x-4 md:gap-x-6">
+                                <img
+                                    src="pictures/images/Ellipsew.png"
+                                    loading="lazy"
+                                    class="w-20 h-20 md:w-24 md:h-24"
+                                    alt="" />
+                                <div>
+                                    <span
+                                        class="block text-xl md:text-2xl mb-1 md:mb-2"
+                                        >Ariyana aly</span
+                                    >
+                                    <span
+                                        class="font-Poppins md:text-lg text-[#444]"
+                                        >Top Customer</span
+                                    >
+                                </div>
+                            </div>
+                            <p
+                                class="font-Poppins my-3 md:my-5 text-eerieBlack line-clamp-3">
+                                Lorem ipsum dolor sit amet,facilisi consectetur
+                                adipiscing elit. Nulla. Vestibulum ante ipsum
+                                primis.
+                            </p>
+                            <span class="font-Poppins text-eerieBlack"
+                                >Date: 02-04-2022</span
+                            >
+                        </div>
+                    </div>
+                    <!-- form contact us -->
+                    <div class="flex-center my-14 xl:mt-32 xl:-mb-20">
+                        <div
+                            class="bg-white shadow-contactUs rounded-2xl w-[954px] p-6 md:py-9 md:pl-[76px] md:pr-[57px]">
+                            <h4
+                                class="font-PoppinsSemiBold text-center text-sm xs:text-xl md:text-3xl text-[#3a3a3a] mb-4 md:mb-8">
+                                Subscribe for any news updates
+                            </h4>
+                            <form
+                                action=""
+                                class="flex flex-col xs:flex-row xs:items-end justify-between gap-4">
+                                <input
+                                    type="text"
+                                    class="outline-none w-full xs:w-[70%] p-1 border-b text-[#909090] border-b-[#909090]"
+                                    placeholder="Enter your Email" />
+                                <input
+                                    type="submit"
+                                    class="flex-center xs:text-xl text-Ultramarine-blue border xs:border-2 border-Ultramarine-blue py-2 px-7 rounded-xl cursor-pointer" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer
+            class="flex-center w-full bg-Ultramarine-blue text-white py-6 xs:py-12">
+            <div class="container">
+                <div
+                    class="flex justify-center xl:justify-between flex-wrap xl:mt-20 gap-6 xs:gap-12 md:gap-20">
+                    <div>
+                        <span class="block text-[28px] mb-7"
+                            >Real estat website</span
+                        >
+                        <p class="font-Poppins text-lg max-w-[313px]">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Nulla facilisi
+                        </p>
+                    </div>
+                    <div>
+                        <span class="block text-[28px] mb-7">Company</span>
+                        <ul class="font-Poppins text-lg">
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Why choose us</a></li>
+                            <li><a href="#">Testimonial</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <span class="block text-[28px] mb-7">Resources</span>
+                        <ul class="font-Poppins text-lg">
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms & Condition</a></li>
+                            <li><a href="#">Contact us</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <span
+                            class="block font-PoppinsSemiBold text-[28px] mb-5"
+                            >Follow us</span
+                        >
+                        <ul class="font-Poppins text-lg">
+                            <li>
+                                <a href="#" class="flex items-center gap-x-3">
+                                    <img
+                                        src="pictures/images/YouTube.png"
+                                        loading="lazy"
+                                        alt="" />
+                                    You tube
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center gap-x-3">
+                                    <img
+                                        src="pictures/images/Instagram Circle.png"
+                                        loading="lazy"
+                                        alt="" />
+                                    Instagram
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center gap-x-3">
+                                    <img
+                                        src="pictures/images/Facebook Circled.png"
+                                        loading="lazy"
+                                        alt="" />
+                                    Facebook
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <span class="block text-[28px] mb-8">Find us</span>
+                        <a href="#"
+                            ><img
+                                src="pictures/images/download 1.png"
+                                loading="lazy"
+                                class="mb-2"
+                                alt=""
+                        /></a>
+                        <a href="#"
+                            ><img
+                                src="pictures/images/download 2.png"
+                                alt=""
+                                loading="lazy"
+                        /></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="script/swiper-bundle.min.js"></script>
+        <script src="script/app.js"></script>
+    </body>
+</html>
